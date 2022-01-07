@@ -1,29 +1,32 @@
-import java.util.Scanner;
+package model;
 
-public class Package {
+public class Parcel {
     //Крис
-
-    Scanner scanner = new Scanner(System.in);
 
     private Client sender;
     private Client receiver;
-    private final double weight;
-    private Destination destination;
     private double price;
+    private final double weight;
     private String address;
+    private final Destinations destination;
+
+    public enum Destinations {
+        OFFICE,
+        ADDRESS
+    }
 
 
-    public Package(Client sender, Client receiver, double weight, Destination destination) {
+    public Parcel(Client sender, Client receiver, double weight, Destinations destination) {
         this.sender = sender;
         this.receiver = receiver;
         this.weight = weight;
-        this.destination = Destination.OFFICE;
+        this.destination = destination;
 
-        if(destination == Destination.OFFICE) {
+        if(destination == Destinations.OFFICE) {
             System.out.println("Please chose office which you'd like the package to be delivered to: ");
 
             //Да се покаже лист от офиси
-
+            this.address = "office";
             if(this.weight < 5){
                 this.price = 5.6;
             } else {
@@ -33,7 +36,8 @@ public class Package {
             System.out.println("The price of delivery is: " + this.price);
         } else {
             System.out.println("Please enter address for delivery: ");
-            this.address = scanner.nextLine();
+//            this.address = scanner.nextLine();
+             this.address = "address";
                 if(this.weight < 5) {
                     this.price = 7;
                 } else {
@@ -43,5 +47,27 @@ public class Package {
         }
     }
 
+    public Client getSender() {
+        return sender;
+    }
 
+    public Client getReceiver() {
+        return receiver;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public Destinations getDestination() {
+        return destination;
+    }
 }
