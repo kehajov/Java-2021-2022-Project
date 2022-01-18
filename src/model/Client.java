@@ -1,11 +1,15 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class Client {
     //Димана
 
     private String name;
     private String phone;
-    public List <Parcel> listOfSentParcels;
+    public List<Parcel> listOfSentParcels;
     public List <Parcel> listOfReceivedParcels;
 
     public Client(String name, String phone) {
@@ -57,7 +61,7 @@ public class Client {
         if (listOfReceivedParcels.isEmpty()) {
             System.out.println("There aren't any received parcels.");
         } else {
-            Iterator<Parcel> iterator = llistOfReceivedParcels.iterator();
+            Iterator<Parcel> iterator = listOfReceivedParcels.iterator();
             while (iterator.hasNext()) {
                 System.out.println(iterator.next() + " ");
             }
