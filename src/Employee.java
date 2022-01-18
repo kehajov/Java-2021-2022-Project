@@ -6,7 +6,6 @@ public class Employee {
         COURIER,OFFICEWORKER
     }
 
-
     public Employee(TypeOfEmployee typeOfEmployee, String name) {
         this.typeOfEmployee = typeOfEmployee;
         this.name = name;
