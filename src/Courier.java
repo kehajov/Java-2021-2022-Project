@@ -16,7 +16,7 @@ public class Courier extends Employee{
 
     public List<Parcel> getListofParcelstoDeliver() {
         return listofParcelstoDeliver;
-    }
+    } // Всички пратки, които са изпратени, но не са получени още
 
     public void deliverParcel(Parcel parcel){
         listofParcelstoDeliver.remove(parcel);
